@@ -1,8 +1,8 @@
 {
     "functions": {
         "api/trpc/[trpc].ts": {
-            "runtime": "nodejs18.x"
+            "memory": 1024,
+            "maxDuration": 10
         }
-    },
-    "routes": [{ "src": "/api/trpc/(.*)", "dest": "/api/trpc/[trpc].ts" }]
+    }
 }

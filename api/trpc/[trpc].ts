@@ -5,3 +5,7 @@ export default createNextApiHandler({
     router: appRouter,
     createContext: () => ({}),
 });
+
+export const config = {
+    runtime: 'edge',
+};
