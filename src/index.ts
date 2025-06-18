@@ -1,5 +1,6 @@
 import { initTRPC } from '@trpc/server';
 import { z } from 'zod';
+import { number } from 'zod/v4';
 
 const t = initTRPC.create();
 
@@ -12,6 +13,28 @@ export const appRouter = router({
             text: `hello ${input ?? 'world'}`,
         };
     }),
+    square: publicProcedure.input(z.number()).query(({ input }) => {
+        return {
+            result: `Square of ${input} is ${input * input}`,
+        };
+    }),
+    sqrt: publicProcedure.input(z.number()).query(({ input }) => {
+        return {
+            result: `Square root of ${input} is ${Math.sqrt(input)}`,
+        };
+    }),
+    add: publicProcedure
+        .input(
+            z.object({
+                a: z.number(),
+                b: z.number(),
+            })
+        )
+        .query(({ input }) => {
+            return {
+                result: `${input.a} + ${input.b} = ${input.a + input.b}`,
+            };
+        }),
 });
 
 export type AppRouter = typeof appRouter;
