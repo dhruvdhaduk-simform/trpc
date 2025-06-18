@@ -1,0 +1,8 @@
+{
+    "functions": {
+        "api/trpc/[trpc].ts": {
+            "runtime": "edge"
+        }
+    },
+    "routes": [{ "src": "/api/trpc/(.*)", "dest": "/api/trpc/[trpc].ts" }]
+}
