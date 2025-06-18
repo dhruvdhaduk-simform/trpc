@@ -1,6 +1,5 @@
 import { initTRPC } from '@trpc/server';
 import { z } from 'zod';
-import { number } from 'zod/v4';
 
 const t = initTRPC.create();
 
@@ -35,6 +34,12 @@ export const appRouter = router({
                 result: `${input.a} + ${input.b} = ${input.a + input.b}`,
             };
         }),
+    reverse: publicProcedure.input(z.string()).query(({ input }) => {
+        return {
+            input,
+            result: `${input.split('').reverse().join('')}`,
+        };
+    }),
 });
 
 export type AppRouter = typeof appRouter;
