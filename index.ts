@@ -12,7 +12,7 @@ const t = initTRPC.create();
 const publicProcedure = t.procedure;
 const router = t.router;
 
-const appRouter = router({
+export const appRouter = router({
     greeting: publicProcedure
         // This is the input schema of your procedure
         // 💡 Tip: Try changing this and see type errors on the client straight away
