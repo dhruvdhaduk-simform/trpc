@@ -3,9 +3,9 @@
     "private": true,
     "scripts": {
         "build": "tsc",
-        "dev": "tsx watch index.ts",
-        "lint": "eslint --cache index.ts",
-        "start": "node dist/index.js"
+        "dev": "tsx watch src/server.ts",
+        "lint": "eslint --cache src/index.ts",
+        "start": "node dist/src/server.js"
     },
     "dependencies": {
         "@trpc/server": "npm:@trpc/server",
